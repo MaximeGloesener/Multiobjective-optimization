@@ -53,14 +53,9 @@ def init_solution(mx, nobj, max_coef):
             m+=z*mx[i]
         row_ind, col_ind = linear_sum_assignment(m)
         sols.append(col_ind) 
-
-    #supprimer les doublons
-    L = {array.tobytes(): array for array in sols}
-    kl=[]
-    for i in L:
-        kl.append(L[i])
-
-    return kl 
+    # on veut les solutions uniques
+    solutions = np.unique(sols, axis=0) 
+    return solutions
 
 
 # fonction qui calcule le score d'une solution
@@ -70,21 +65,4 @@ def score(sol, d, nobj):
     for i,v in enumerate(sol):
         obj+=d[(i,v)]      
     return obj
-
-
-
-def hypervolume(ref_point,A):
-    '''
-    ref_point = [x,y,z]
-    A = np.array(np.array())
-    '''
-    ref_point = np.array(ref_point)
-    A = np.array(A)
-    print(A)
-    ind = HV(ref_point=ref_point)
-    return ind(A)
-
-# fonction qui prend en entrée un vecteur de solutions et return les solutions uniques
-def clean_solutions(sols):
-    return np.unique(sols, axis=0)
 
