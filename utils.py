@@ -72,6 +72,7 @@ def score(sol, d, nobj):
     return obj
 
 
+
 def hypervolume(ref_point,A):
     '''
     ref_point = [x,y,z]
@@ -82,3 +83,8 @@ def hypervolume(ref_point,A):
     print(A)
     ind = HV(ref_point=ref_point)
     return ind(A)
+
+# fonction qui prend en entrée un vecteur de solutions et return les solutions uniques
+def clean_solutions(sols):
+    return np.unique(sols, axis=0)
+
