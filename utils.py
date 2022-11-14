@@ -52,7 +52,14 @@ def init_solution(mx, nobj, max_coef):
             m+=z*mx[i]
         row_ind, col_ind = linear_sum_assignment(m)
         sols.append(col_ind) 
-    return sols 
+
+    #supprimer les doublons
+    L = {array.tobytes(): array for array in sols}
+    kl=[]
+    for i in L:
+        kl.append(L[i])
+
+    return kl 
 
 
 # fonction qui calcule le score d'une solution
