@@ -6,9 +6,9 @@ import numpy as np
 file_name = "Data/input/LAP15-4obj.txt"
 nombre_objectif = 4
 ref = (50, 120, 150, 200)  # point de référence pour le calcul de l'hypervolume
-taille_init_random = 0
-taille_random = 1000
-taille_coef_combi = 0
+taille_init_random = 10
+taille_random = 0
+taille_coef_combi = 50
 
 # Lecture des données
 d = read_data(file_name, nombre_objectif)
@@ -41,7 +41,7 @@ def algo(solutions, d, nombre_objectif):
             # parcourir les voisins et chercher une meilleure valeur
             for voisin in voisins:
                 # si voisin déjà dans sols alors on passe
-                if np.any(np.all(voisin==sols, axis = 1)):
+                if np.any(np.all(voisin == sols, axis=1)):
                     continue
                 score_newsol = score(voisin, d, nombre_objectif)
                 # si solution déjà présente alors on ne met pas à jour l'archive mais on veut quand même explorer les voisins de cette solution
@@ -55,7 +55,7 @@ def algo(solutions, d, nombre_objectif):
                     sols.append(voisin)
             print(len(archive.keys()))
     except KeyboardInterrupt:
-        write(archive,"30v3.txt" )
+        write(archive, "30v3.txt")
     return archive
 
 
@@ -68,9 +68,9 @@ for rep in range(10):
 
     print(len(sols))
 
-# Calcul de l'hypervolume
-# h = hypervolume(ref, (sols.keys()))
-# print(f"Hypervolume = {h} %")
+    # Calcul de l'hypervolume
+    # h = hypervolume(ref, (sols.keys()))
+    # print(f"Hypervolume = {h} %")
 
-# Stocker la solution obtenue
-    write(sols, f"{rep}.txt")
+    # Stocker la solution obtenue
+    write(sols, f"{rep}v6.txt")

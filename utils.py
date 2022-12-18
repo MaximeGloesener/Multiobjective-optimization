@@ -79,6 +79,8 @@ def init_random(sols, size, d, nobj):
     return sols
 
 # permet de lier à chaque solution trouvée son score au format {score:solution}
+
+
 def generate_solution(solutions, d, nobj):
     # stocker les vecteurs de solutions sous la forme d'un dico {(f1,f2,..): [vecteur]}
     score_dict = dict()
@@ -154,5 +156,6 @@ def update(x, y):
 def write(sols, filename):
     filename = filename.split('/')[-1]
     with open(f'Data/solutions/{filename}', 'w') as fout:
+        fout.write(str(len(sols))+'\n')
         for sol in sols:
             fout.write(" ".join(str(int(i)) for i in sol) + "\n")

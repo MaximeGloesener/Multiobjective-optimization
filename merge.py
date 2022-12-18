@@ -1,5 +1,5 @@
 from utils import domine
-fileA = 'merge2.txt'
+fileA = 'Data/solutions/20/20.txt'
 
 def check(data, val1):
     for val in data:
@@ -8,7 +8,7 @@ def check(data, val1):
     return True 
 
 
-with open(fileA, 'r') as fin, open('merge3.txt', 'w') as fout:
+with open(fileA, 'r') as fin, open('20All.txt', 'w') as fout:
     data =  set([tuple(map(int, line.strip().split())) for line in fin])
     sols = []
 
