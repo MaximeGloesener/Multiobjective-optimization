@@ -43,4 +43,4 @@ def compare(filenameA, filenameB, reference):
 
 
 ref = (900, 900, 900, 900)
-compare("Data/solutions/30.txt", "Data/solutions/tanguySOL304.txt", ref)
+compare("Data/solutions/15/15.txt", "Data/solutions/autres/tanguySOL154.txt", ref)

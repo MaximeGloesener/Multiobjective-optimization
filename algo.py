@@ -3,12 +3,12 @@ import time
 import numpy as np
 
 # Paramètres importantes à remplir au début
-file_name = "Data/input/LAP30-4obj.txt"
+file_name = "Data/input/LAP15-4obj.txt"
 nombre_objectif = 4
 ref = (50, 120, 150, 200)  # point de référence pour le calcul de l'hypervolume
-taille_init_random = 50
-taille_random = 0
-taille_coef_combi = 60
+taille_init_random = 0
+taille_random = 1000
+taille_coef_combi = 0
 
 # Lecture des données
 d = read_data(file_name, nombre_objectif)
@@ -59,18 +59,18 @@ def algo(solutions, d, nombre_objectif):
     return archive
 
 
+for rep in range(10):
+    # Benchmark temps algo
+    start2 = time.monotonic()
+    sols = algo(all_solutions, d, nombre_objectif)
+    end2 = time.monotonic()
+    print(f"Solutions trouvées en {end2-start2} s")
 
-# Benchmark temps algo
-start2 = time.monotonic()
-sols = algo(all_solutions, d, nombre_objectif)
-end2 = time.monotonic()
-print(f"Solutions trouvées en {end2-start2} s")
-
-print(len(sols))
+    print(len(sols))
 
 # Calcul de l'hypervolume
 # h = hypervolume(ref, (sols.keys()))
 # print(f"Hypervolume = {h} %")
 
 # Stocker la solution obtenue
-write(sols, "AAAA.txt")
+    write(sols, f"{rep}.txt")
