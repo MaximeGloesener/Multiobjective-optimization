@@ -20,6 +20,8 @@ def number_dominated(sol1, sol2):
 
 def compare(filenameA, filenameB, reference):
     with open(filenameA, 'r') as f1, open(filenameB, 'r') as f2:
+        n1 = f1.readline()
+        n2 = f2.readline()
         data1 = [tuple(map(int, line.strip().split())) for line in f1]
         data2 = [tuple(map(int, line.strip().split())) for line in f2]
         domine1, same = number_dominated(data1, data2)
@@ -37,11 +39,10 @@ def compare(filenameA, filenameB, reference):
     )
 
     print('')
-
-    print(f"Hypervolume de A = {hypervolume(reference, data1)}")
-    print(f"Hypervolume de B = {hypervolume(reference, data2)}")
+    #print(f"Hypervolume de A = {hypervolume(reference, data1)}")
+    #print(f"Hypervolume de B = {hypervolume(reference, data2)}")
 
 
 ref = (900, 900, 900, 900)
-compare("Data/solutions/20/20.txt",
-        "Data/solutions/autres/tanguySOL204.txt", ref)
+compare("Data/solutions/30/30.txt",
+        "Data/solutions/autres/florom30.txt", ref)
