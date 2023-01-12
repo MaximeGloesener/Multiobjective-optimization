@@ -1,3 +1,7 @@
+"""
+Implémentation de toutes les fonctions utiles pour l'algorithme
+"""
+
 from collections import defaultdict
 import numpy as np
 from scipy.optimize import linear_sum_assignment
@@ -79,8 +83,6 @@ def init_random(sols, size, d, nobj):
     return sols
 
 # permet de lier à chaque solution trouvée son score au format {score:solution}
-
-
 def generate_solution(solutions, d, nobj):
     # stocker les vecteurs de solutions sous la forme d'un dico {(f1,f2,..): [vecteur]}
     score_dict = dict()

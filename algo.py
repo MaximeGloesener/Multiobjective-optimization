@@ -1,18 +1,22 @@
+"""
+Implémentation de l'algorithme
+"""
+
 from utils import get_matrix, init_combinaisons, read_data, score, generate_solution, voisinage, check_domine_diff, update, write, init_random
 import time
 import numpy as np
 
-# Paramètres importantes à remplir au début
-file_name = "Data/input/LAP15-4obj.txt"
+# Paramètres pour l'initialisation des solutions 
+file_name = "Data/input/LAP30-4obj.txt"
 nombre_objectif = 4
-ref = (50, 120, 150, 200)  # point de référence pour le calcul de l'hypervolume
-taille_init_random = 10
+taille_init_random = 30
 taille_random = 0
-taille_coef_combi = 50
+taille_coef_combi = 20
 
 # Lecture des données
 d = read_data(file_name, nombre_objectif)
 mx = get_matrix(file_name, nombre_objectif)
+
 
 start = time.monotonic()
 # Initialisation des solutions
@@ -59,18 +63,12 @@ def algo(solutions, d, nombre_objectif):
     return archive
 
 
-for rep in range(10):
-    # Benchmark temps algo
-    start2 = time.monotonic()
-    sols = algo(all_solutions, d, nombre_objectif)
-    end2 = time.monotonic()
-    print(f"Solutions trouvées en {end2-start2} s")
 
-    print(len(sols))
-
-    # Calcul de l'hypervolume
-    # h = hypervolume(ref, (sols.keys()))
-    # print(f"Hypervolume = {h} %")
-
-    # Stocker la solution obtenue
-    write(sols, f"{rep}v6.txt")
+# Benchmark temps algo
+start2 = time.monotonic()
+sols = algo(all_solutions, d, nombre_objectif)
+end2 = time.monotonic()
+print(f"Solutions trouvées en {end2-start2} s")
+print(f'Nombre de solutions trouvées = {len(sols)}')
+# Stocker la solution obtenue
+write(sols, f"SOL{file_name}")

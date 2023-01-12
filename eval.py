@@ -1,9 +1,10 @@
-# Comparaison des solutions obtenus avec celles des autres étudiants / celles du prof
-
+"""
+Comparaison des solutions obtenues avec celles des autres étudiants
+"""
 from utils import hypervolume, domine
 
 
-# trouve le nombre de solutions dominées par une autre solution
+# Trouve le nombre de solutions dominées par une autre solution
 def number_dominated(sol1, sol2):
     number = 0
     same = 0
@@ -17,7 +18,7 @@ def number_dominated(sol1, sol2):
                 break
     return number, same
 
-
+# Comparer les solutions
 def compare(filenameA, filenameB):
     with open(filenameA, 'r') as f1, open(filenameB, 'r') as f2:
         n1 = f1.readline()
@@ -26,7 +27,7 @@ def compare(filenameA, filenameB):
         data2 = [tuple(map(int, line.strip().split())) for line in f2]
         domine1, same = number_dominated(data1, data2)
         domine2, same = number_dominated(data2, data1)
-    ref = [max(idx)*1.1 for idx in zip(*n1)]
+    ref = [max(idx)*1.1 for idx in zip(*data1)]
     print(f"Nombre de solutions de A = {len(data1)}")
     print(f"Nombre de solutions de B = {len(data2)}")
     print(f"Nombre de solutions identiques : {same}")
@@ -40,9 +41,8 @@ def compare(filenameA, filenameB):
     )
 
     print('')
-    print(f"Hypervolume de A = {hypervolume(ref, data1)}")
-    print(f"Hypervolume de B = {hypervolume(ref, data2)}")
+    #print(f"Hypervolume de A = {hypervolume(ref, data1)}")
+    #print(f"Hypervolume de B = {hypervolume(ref, data2)}")
 
 
-
-compare("Data/solutions/15/15.txt","Data/solutions/autres/tanguySOL154.txt")
+compare("Data/solutions/30/30_10minutes.txt","Data/solutions/autres/30/tom.txt")

@@ -41,7 +41,7 @@ Exemple de solution:
 
 ## Initialisation du problème
 
-### Combibaisons linéaires
+### Combinaisons linéaires
 
 Pour initialiser le problème, on fait des combinaisons linéaires des fonctions objectifs et on résoud cela comme un problème mono-objectif avec le solveur linear_sum_assignment de scipy (on veut résoudre un problème d'assignation).
 Cela nous permet de connaître les valeurs extrêmes du front de Pareto.
