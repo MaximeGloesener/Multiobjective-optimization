@@ -50,6 +50,9 @@ Cela nous permet de connaître les valeurs extrêmes du front de Pareto.
 
 On initialise le problème aussi avec des solutions aléatoires qu'on va explorer par la suite.
 
+### 
+Initialisation de solutions totalement aléatoires. Moins efficace mais utile pour les problèmes de petites dimensions.
+
 ## Algorithme
 
 ### Exploration
