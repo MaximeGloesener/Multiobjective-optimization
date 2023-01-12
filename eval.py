@@ -40,9 +40,4 @@ def compare(filenameA, filenameB):
         f"Nombre de solutions non dominées dans B par A = {len(data2)-domine2}"
     )
 
-    print('')
-    #print(f"Hypervolume de A = {hypervolume(ref, data1)}")
-    #print(f"Hypervolume de B = {hypervolume(ref, data2)}")
-
-
-compare("Data/solutions/30/30_10minutes.txt","Data/solutions/autres/30/tom.txt")
+compare("Data/solutions/30/30_15minutes.txt","Data/solutions/autres/30/tom.txt")

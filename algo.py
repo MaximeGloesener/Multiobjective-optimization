@@ -9,9 +9,9 @@ import numpy as np
 # Paramètres pour l'initialisation des solutions 
 file_name = "Data/input/LAP30-4obj.txt"
 nombre_objectif = 4
-taille_init_random = 30
+taille_init_random = 0
 taille_random = 0
-taille_coef_combi = 20
+taille_coef_combi = 10
 
 # Lecture des données
 d = read_data(file_name, nombre_objectif)
@@ -61,7 +61,6 @@ def algo(solutions, d, nombre_objectif):
     except KeyboardInterrupt:
         write(archive, "30v3.txt")
     return archive
-
 
 
 # Benchmark temps algo
